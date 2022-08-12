@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Owners</title>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+	
+</head>
+<body>
+
+
+
+<div>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Ad</th>
+      <th scope="col">Soyad</th>
+      <th scope="col">E-Posta</th>
+      <th scope="col">Telefon</th>
+
+   
+    </tr>
+  </thead>
+  <tbody>
+  <tr th:each="owner : ${ownerList}" >
+   <td th:text="${owner.id}"></td>
+   <td th:text="${owner.ownerName}"></td>
+   <td th:text="${owner.ownerSurname}"></td>
+   <td th:text="${owner.ownerMailAddress}"></td>
+   <td th:text="${owner.ownerPhone}"></td>
+   
+  </tr>
+  </tbody>
+</table>
+</div>
+</body>
+</html>

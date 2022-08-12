@@ -13,22 +13,24 @@ import javax.persistence.OneToMany;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+
 public class Owner {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	long id;
 	
-	public String ownerName;
-	public String ownerSurname;
-	public String ownerPhone;
-	public String ownerMailAddress;
+	private String ownerName;
+	private String ownerSurname;
+	private String ownerPhone;
+	private String ownerMailAddress;
 	
 	
 	/*@OneToMany(mappedBy = "owner",fetch = FetchType.EAGER , cascade =CascadeType.ALL)

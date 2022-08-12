@@ -23,9 +23,9 @@ public class Animal {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	long id;
 	
-	public String petName;
-	public int petAge;
-	public String description;
+	private String petName;
+	private int petAge;
+	private String description;
 	
 	
 	@ManyToOne()

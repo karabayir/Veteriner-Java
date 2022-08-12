@@ -11,9 +11,14 @@ import com.example.veteriner.repository.KindRepository;
 @Service
 public class KindService {
 	
-	@Autowired
-	KindRepository kindRepository;
 	
+	private final KindRepository kindRepository;
+	
+	
+	public KindService(KindRepository kindRepository) {
+		this.kindRepository = kindRepository;
+	}
+
 	public List<Kind> getAllKinds(){
 		return kindRepository.findAll();
 	}

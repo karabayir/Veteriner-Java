@@ -3,6 +3,7 @@ package com.example.veteriner.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,17 +18,34 @@ import com.example.veteriner.requests.AnimalCreateRequest;
 import com.example.veteriner.requests.AnimalUpdateRequest;
 import com.example.veteriner.service.AnimalService;
 
+
 @RestController
 @RequestMapping("/animals")
 public class AnimalController {
 
-	@Autowired
-	AnimalService animalService;
+	private final AnimalService animalService;
 	
+	
+	public AnimalController(AnimalService animalService) {
+		this.animalService = animalService;
+	}
+
 	@GetMapping()
 	public List<Animal> getAllAnimals(){
 		return animalService.getAllAnimals();
 	}
+	
+	/*@GetMapping("/animal")
+	public String thAnimal(Model model) {
+		List<Animal> animalList = getAllAnimals();
+		model.addAttribute("animalList", animalList);
+		return "animal";
+	}*/
+	
+	/*@GetMapping("/{id}")
+	public Animal findAnimalById(@PathVariable long id) {
+		return animalService.findAnimalById(id);
+	}*/
 	
 	@GetMapping("/{petName}")
 	public Animal findByName(@PathVariable String petName) {

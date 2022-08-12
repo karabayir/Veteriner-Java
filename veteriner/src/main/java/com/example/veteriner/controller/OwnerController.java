@@ -19,13 +19,22 @@ import com.example.veteriner.service.OwnerService;
 @RequestMapping("/owners")
 public class OwnerController {
 	
-	@Autowired
-	OwnerService ownerService;
 	
+	private final OwnerService ownerService;
+	
+	public OwnerController(OwnerService ownerService) {
+		this.ownerService = ownerService;
+	}
+
 	@GetMapping()
 	public List<Owner> getAllOwner(){
 		return ownerService.getAllOwners();
 	}
+	
+	/*@GetMapping("/{id}")
+	public Owner findOwnerById(@PathVariable long id) {
+		return ownerService.findOwnerById(id);
+	}*/
 	
 	@GetMapping("/{ownerName}")
 	public Owner findByName(@PathVariable String ownerName) {

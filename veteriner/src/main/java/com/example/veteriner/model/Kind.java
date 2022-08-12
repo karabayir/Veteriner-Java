@@ -9,10 +9,13 @@ import javax.persistence.OneToOne;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 
 public class Kind  {
 	
@@ -20,7 +23,7 @@ public class Kind  {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	long id;
 	
-	String kindName;
+	private String kindName;
 
 	
 	/*@OneToOne(cascade=CascadeType.ALL)

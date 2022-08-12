@@ -11,10 +11,13 @@ import com.example.veteriner.repository.OwnerRepository;
 @Service
 public class OwnerService {
 
-	@Autowired
-	OwnerRepository ownerRepository;
+	 private final OwnerRepository ownerRepository;
+	 
 	
-	
+	public OwnerService(OwnerRepository ownerRepository) {
+		this.ownerRepository = ownerRepository;
+	}
+
 	public List<Owner> getAllOwners(){
 		return ownerRepository.findAll();
 	}

@@ -18,9 +18,12 @@ import com.example.veteriner.service.GenusService;
 @RequestMapping("/genus")
 public class GenusController {
 	
-	@Autowired
-	GenusService genusService;
+	private final GenusService genusService;
 	
+	public GenusController(GenusService genusService) {
+		this.genusService = genusService;
+	}
+
 	@GetMapping
 	public List<Genus> getAllGenus(){
 		return genusService.getAllGenus();

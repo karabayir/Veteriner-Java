@@ -18,9 +18,13 @@ import com.example.veteriner.service.KindService;
 @RequestMapping("/kinds")
 public class KindController {
 	
-	@Autowired
-	KindService kindService;
 	
+	private final KindService kindService;
+	
+	public KindController(KindService kindService) {
+		this.kindService = kindService;
+	}
+
 	@GetMapping()
 	public List<Kind> getAllKinds(){
 		return kindService.getAllKinds();

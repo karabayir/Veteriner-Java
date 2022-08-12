@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import com.example.veteriner.model.Animal;
 import com.example.veteriner.model.Genus;
@@ -16,20 +17,34 @@ import com.example.veteriner.requests.AnimalUpdateRequest;
 @Service
 public class AnimalService {
 	
-	@Autowired
-	AnimalRepository animalRepository;
+	private final AnimalRepository animalRepository;
+	private final OwnerService ownerService;
+	private final KindService kindService;
+	private final GenusService genusService;
 	
-	@Autowired
-	OwnerService ownerService;
 	
-	@Autowired
-	KindService kindService;
 	
-	@Autowired
-	GenusService genusService;
-	
+	public AnimalService(AnimalRepository animalRepository, OwnerService ownerService, KindService kindService,
+		GenusService genusService) {
+		this.animalRepository = animalRepository;
+		this.ownerService = ownerService;
+		this.kindService = kindService;
+		this.genusService = genusService;
+	}
+
+
 	public List<Animal> getAllAnimals(){
-		return animalRepository.findAll();
+		 List<Animal> animalList= animalRepository.findAll();
+		 return animalList;
+	}
+	
+	public Animal findAnimalById(long id) {
+		return animalRepository.findById(id).orElse(null);
+	}
+	
+	
+	public Animal saveAnimal(Animal animal) {
+		return animalRepository.save(animal);
 	}
 	
 	

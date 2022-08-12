@@ -10,10 +10,13 @@ import com.example.veteriner.repository.GenusRepository;
 
 @Service
 public class GenusService {
+
+	private final GenusRepository genusRepository;
 	
-	@Autowired
-	GenusRepository genusRepository;
-	
+	public GenusService(GenusRepository genusRepository) {
+		this.genusRepository = genusRepository;
+	}
+
 	public List<Genus> getAllGenus(){
 		return genusRepository.findAll();
 	}

@@ -13,14 +13,15 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Data
-
+@NoArgsConstructor
+@AllArgsConstructor
 public class Genus   {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	long id;
 	
-	String genusName;
+	private String genusName;
 	
 	/*@OneToOne(cascade=CascadeType.ALL)
 	Animal animal;*/

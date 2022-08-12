@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Spring boot project</title>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div>
+<Form action="#" th:action="@{/animal-register}" th:object="${animal}" method="post">
+<div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">ID</label>
+  <input type="text" class="form-control" th:field="*{id}" id="petName" >
+</div>
+<div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Pet Adı</label>
+  <input type="text" class="form-control" th:field="*{petName}" id="petName" >
+</div>
+<div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Pet Yaşı</label>
+  <input type="number" min="0" class="form-control" th:field="*{petAge}" id="petAge"  >
+</div>
+<div class="input-group mb-3">
+  <span class="input-group-text">Açıklama</span>
+  <textarea class="form-control" aria-label="With textarea" th:field="*{description}" id="desscription" ></textarea>
+</div>
+
+<div class="input-group mb-3">
+  <label class="input-group-text" for="inputGroupSelect01">Tür</label>
+  <select class="form-select"  th:field="*{kindName}" id="kindName" >
+    <div th:each="kind : ${kindList}">
+    <option  th:text="${kind.kindName}" th:value="${kind.kindName}"></option>
+    </div>    
+  </select>
+</div>
+
+<div class="input-group mb-3">
+  <label class="input-group-text" for="inputGroupSelect01">Cins</label>
+  <select class="form-select" th:field="*{genusName}" id="genusName" >
+    <div th:each="genus : ${genusList}">
+    <option  th:text="${genus.genusName}" th:value="${genus.genusName}"></option>
+    </div>    
+  </select>
+</div>
+
+<div class="input-group mb-3">
+  <label class="input-group-text" for="inputGroupSelect01">Sahibi</label>
+  <select class="form-select" th:field="*{ownerName}" id="ownerName" >
+    <div th:each="owner : ${ownerList}">
+    <option  th:text="${owner.ownerName}" th:value="${owner.ownerName}"></option>
+    </div>    
+  </select>
+</div>
+<input type="submit" value="Add Animal"> 
+</Form>
+</div>
+</body>
+</html>
