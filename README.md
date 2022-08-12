@@ -4,7 +4,7 @@ Spring Boot Projesi
 
 Projeyi Komut Satırından Çalıştırmak için
 
-Projenin bulunduğu lokasyonu *cmd* ile açın.
+Proje dosyasının bulunduğu lokasyonu *cmd* (komut satırı) ile açın.
 
 *mvn install* komutunu çalıştırın.
 
