@@ -1,7 +1,7 @@
 # Veteriner-Java
 
  =Spring Boot Proesi
- == Projeyi Komut Satırından Çalıştırmak
+ ==Projeyi Komut Satırından Çalıştırmak
 Projenin bulunduğu lokasyonu *cmd* ile açın.
 *mvn install* komutunu çalıştırın.
 Proje dosyasındaki *target* klasörüne gidin.Lokasyonunu *cmd* ile çalıştırın.
