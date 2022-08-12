@@ -42,7 +42,10 @@ java -jar  `target dosyasıdaki SNAPSHOT ile biten dosyanın ismi` komutunu çal
 ## Teknik Seçimler
 
 Database : H2 Database 
+
 Test : JUnit 4
+
 API-Test : Postman
+
 IDE :Eclipse 
 
