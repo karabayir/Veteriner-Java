@@ -12,8 +12,8 @@ import com.example.veteriner.model.Genus;
 import com.example.veteriner.model.Kind;
 import com.example.veteriner.model.Owner;
 import com.example.veteriner.repository.AnimalRepository;
-import com.example.veteriner.repository.OwnerRepository;
 import com.example.veteriner.requests.AnimalCreateRequest;
+
 
 public class AnimalServiceTest {
 	
@@ -59,5 +59,7 @@ public class AnimalServiceTest {
 		Assert.assertEquals(result, animal);
 		Mockito.verify(animalRepository).save(animal);
 	}
+	
+
 
 }
